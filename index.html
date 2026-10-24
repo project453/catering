@@ -1,350 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Fadilat Abubakar Idowu catering | Simple & Delicious</title>
-    <style>
-        /* Base Styles & Variables */
-        :root {
-            --primary: #c69b6d; /* Warm gold/bronze theme */
-            --dark: #222222;
-            --light: #f9f9f9;
-            --text: #444444;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            color: var(--text);
-            line-height: 1.6;
-            background-color: #fff;
-        }
-
-        /* Navigation */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: #ffffff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            z-index: 1000;
-        }
-
-        .nav-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: var(--dark);
-            text-decoration: none;
-        }
-
-        .logo span {
-            color: var(--primary);
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--dark);
-            margin-left: 20px;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--primary);
-        }
-
-        /* Sections General styling */
-        section {
-            padding: 80px 20px 60px 20px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 32px;
-            margin-bottom: 40px;
-            color: var(--dark);
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background: var(--primary);
-            margin: 10px auto 0 auto;
-        }
-
-        /* Hero Section */
-        #home {
-            max-width: 100%;
-            padding: 0;
-            height: 80vh;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://unsplash.com') no-repeat center center/cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #fff;
-        }
-
-        .hero-content h1 {
-            font-size: 48px;
-            margin-bottom: 15px;
-        }
-
-        .hero-content p {
-            font-size: 18px;
-            margin-bottom: 25px;
-        }
-
-        .btn {
-            display: inline-block;
-            background: var(--primary);
-            color: #fff;
-            padding: 12px 30px;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: bold;
-            transition: background 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background: #b28558;
-        }
-
-        /* Menu Section (Responsive Grid) */
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .menu-card {
-            background: var(--light);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            text-align: center;
-            padding: 25px;
-            border-top: 4px solid var(--primary);
-        }
-
-        .menu-card h3 {
-            font-size: 22px;
-            color: var(--dark);
-            margin-bottom: 10px;
-        }
-
-        .menu-card .price {
-            font-size: 24px;
-            font-weight: bold;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-
-        .menu-card ul {
-            list-style: none;
-            margin-bottom: 20px;
-        }
-
-        .menu-card ul li {
-            margin-bottom: 8px;
-            font-size: 15px;
-        }
-
-        /* About Section */
-        #about {
-            background-color: var(--light);
-            max-width: 100%;
-            width: 100%;
-        }
-
-        .about-wrapper {
-            max-width: 1100px;
-            margin: 0 auto;
-            text-align: center;
-            max-width: 700px;
-        }
-
-        .about-wrapper p {
-            font-size: 17px;
-            margin-bottom: 20px;
-        }
-
-        /* Contact Section Form */
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background: var(--light);
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 500;
-            color: var(--dark);
-        }
-
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            height: 120px;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: #888;
-            text-align: center;
-            padding: 20px;
-            font-size: 14px;
-        }
-
-        /* Mobile Responsive adjustment */
-        @media (max-width: 768px) {
-            .hero-content h1 { font-size: 32px; }
-            .nav-container { flex-direction: column; gap: 10px; }
-            nav a { margin: 0 10px; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Fadilat Catering Services — delicious meals, event catering, small chops, cakes, pastries and bulk food orders.">
+  <title>Fadilat Catering Services | Fresh Meals, Great Taste</title>
+  <style>
+    :root {
+      --green: #075b31;
+      --green-dark: #032d19;
+      --green-light: #eaf4ec;
+      --gold: #e5b63f;
+      --cream: #fffaf0;
+      --ink: #17221b;
+      --muted: #657269;
+      --white: #fff;
+      --shadow: 0 16px 45px rgba(4, 42, 23, .12);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: Inter, "Segoe UI", Arial, sans-serif; color: var(--ink); line-height: 1.6; background: #fff; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(1120px, 92%); margin-inline: auto; }
+    .topbar { background: var(--green-dark); color: #f8f6ed; padding: 9px 0; font-size: .88rem; }
+    .topbar-inner { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    header { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,.96); backdrop-filter: blur(12px); box-shadow: 0 2px 15px #0000000a; }
+    nav { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 22px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 900; color: var(--green); line-height: 1.15; }
+    .brand img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); }
+    .brand small { display: block; color: #8a6a13; font-size: .7rem; letter-spacing: 1.4px; text-transform: uppercase; margin-top: 5px; }
+    .navlinks { display: flex; align-items: center; gap: 25px; font-size: .94rem; font-weight: 650; }
+    .navlinks a:hover { color: var(--green); }
+    .menu-btn { display: none; border: 0; background: var(--green); color: white; padding: 10px 13px; border-radius: 9px; font-size: 1rem; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 999px; padding: 13px 22px; font-weight: 800; transition: .2s; border: 2px solid transparent; cursor: pointer; }
+    .btn-primary { background: var(--gold); color: #17200f; }
+    .btn-primary:hover { background: #f1c957; transform: translateY(-2px); }
+    .btn-outline { border-color: #ffffffa8; color: white; }
+    .btn-outline:hover { background: white; color: var(--green-dark); }
+    .hero { color: white; background: radial-gradient(circle at 82% 18%, #24794b 0, transparent 28%), linear-gradient(115deg, #032d19, #075b31 65%, #0b6738); overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 55px; padding-block: 78px; min-height: 570px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--gold); font-size: .8rem; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 18px; }
+    .eyebrow:before { content: ""; width: 27px; height: 2px; background: var(--gold); }
+    h1 { font-size: clamp(2.5rem, 5vw, 4.6rem); line-height: 1.06; letter-spacing: -2px; margin-bottom: 22px; }
+    h1 span { color: var(--gold); }
+    .hero p { color: #e0eee5; max-width: 560px; font-size: 1.08rem; margin-bottom: 29px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero-note { margin-top: 27px; color: #c6d9cc; font-size: .9rem; }
+    .hero-visual { position: relative; display: grid; place-items: center; }
+    .logo-frame { width: min(390px, 100%); aspect-ratio: 1; padding: 10px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), #fff0a8, #8d6815); box-shadow: 0 25px 65px #001b0e88; transform: rotate(2deg); }
+    .logo-frame img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; border: 5px solid #041c0e; }
+    .floating-tag { position: absolute; right: -4px; bottom: 22px; background: var(--cream); color: var(--green-dark); padding: 14px 18px; border-radius: 15px; box-shadow: var(--shadow); font-weight: 900; transform: rotate(-3deg); }
+    .floating-tag span { display: block; font-size: .76rem; color: #6b7167; font-weight: 600; }
+    section { padding: 82px 0; }
+    .section-head { max-width: 680px; margin: 0 auto 42px; text-align: center; }
+    .section-kicker { color: #8d6a0d; text-transform: uppercase; letter-spacing: 2px; font-size: .78rem; font-weight: 900; margin-bottom: 10px; }
+    h2 { color: var(--green-dark); font-size: clamp(2rem, 3vw, 3rem); line-height: 1.15; letter-spacing: -1px; margin-bottom: 14px; }
+    .section-head p { color: var(--muted); }
+    .services { background: var(--cream); }
+    .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .service-card { background: white; border: 1px solid #e9eadf; border-radius: 20px; padding: 27px; box-shadow: 0 8px 24px #1c40200a; transition: .25s; }
+    .service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+    .service-icon { display: grid; place-items: center; width: 55px; height: 55px; background: var(--green-light); border-radius: 16px; font-size: 1.7rem; margin-bottom: 20px; }
+    .service-card h3 { color: var(--green-dark); margin-bottom: 9px; font-size: 1.15rem; }
+    .service-card p { color: var(--muted); font-size: .94rem; }
+    .about-grid { display: grid; grid-template-columns: .85fr 1.15fr; align-items: center; gap: 55px; }
+    .about-panel { background: var(--green-dark); border-radius: 25px; color: white; padding: 36px; position: relative; overflow: hidden; }
+    .about-panel:after { content: "✦"; position: absolute; font-size: 150px; color: #ffffff0c; right: 8px; bottom: -45px; }
+    .about-panel .big { font-size: 2.6rem; color: var(--gold); font-weight: 900; line-height: 1.1; }
+    .about-panel p { color: #d8e6dc; margin-top: 12px; }
+    .about-copy p { color: var(--muted); margin: 12px 0 20px; }
+    .check-list { list-style: none; display: grid; gap: 12px; margin: 22px 0 28px; }
+    .check-list li:before { content: "✓"; display: inline-grid; place-items: center; background: var(--green-light); color: var(--green); font-weight: 900; width: 25px; height: 25px; border-radius: 50%; margin-right: 10px; }
+    .profile { background: var(--green-light); }
+    .profile-card { max-width: 780px; margin: auto; display: flex; align-items: center; gap: 25px; background: white; padding: 30px; border-radius: 22px; box-shadow: var(--shadow); }
+    .profile-avatar { width: 84px; height: 84px; flex: 0 0 84px; border-radius: 50%; display: grid; place-items: center; background: var(--green); color: var(--gold); font-size: 2rem; font-weight: 900; border: 4px solid #f4d77d; }
+    .profile-card h3 { font-size: 1.35rem; color: var(--green-dark); }
+    .profile-card p { color: var(--muted); }
+    .profile-label { display: inline-block; margin-top: 10px; color: #6d520a; background: #fff4cf; border-radius: 99px; padding: 5px 12px; font-size: .8rem; font-weight: 800; }
+    .contact { background: #fff; }
+    .contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 35px; align-items: stretch; }
+    .contact-info { background: var(--green-dark); color: white; padding: 34px; border-radius: 22px; }
+    .contact-info h3 { font-size: 1.55rem; margin-bottom: 12px; }
+    .contact-info p { color: #d5e4d9; margin-bottom: 24px; }
+    .contact-line { padding: 15px 0; border-top: 1px solid #ffffff25; }
+    .contact-line strong { display: block; color: var(--gold); font-size: .82rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+    .order-box { border: 1px solid #e3e9e1; border-radius: 22px; padding: 34px; background: var(--cream); }
+    .order-box h3 { color: var(--green-dark); font-size: 1.5rem; margin-bottom: 10px; }
+    .order-box p { color: var(--muted); margin-bottom: 22px; }
+    .order-box .btn { width: 100%; }
+    footer { background: #021e10; color: #cbd8ce; padding: 28px 0; font-size: .88rem; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 15px; flex-wrap: wrap; }
+    .footer-inner strong { color: var(--gold); }
+    @media (max-width: 800px) {
+      .navlinks { display: none; position: absolute; top: 78px; left: 0; right: 0; padding: 20px 4%; background: white; box-shadow: 0 12px 18px #00000012; flex-direction: column; align-items: stretch; gap: 17px; }
+      .navlinks.open { display: flex; }
+      .menu-btn { display: block; }
+      .hero-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .hero-grid { padding-block: 58px; gap: 42px; }
+      .hero-visual { max-width: 420px; width: 100%; margin: auto; }
+      .service-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-grid { gap: 30px; }
+    }
+    @media (max-width: 540px) {
+      section { padding: 62px 0; }
+      .topbar-inner { justify-content: center; text-align: center; }
+      .service-grid { grid-template-columns: 1fr; }
+      .profile-card { align-items: flex-start; padding: 23px; gap: 16px; }
+      .profile-avatar { width: 62px; height: 62px; flex-basis: 62px; font-size: 1.5rem; }
+      .order-box, .contact-info, .about-panel { padding: 25px; }
+      h1 { letter-spacing: -1px; }
+      .floating-tag { right: -4px; bottom: 5px; }
+    }
+  </style>
 </head>
 <body>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>🍽️ Fresh meals • Great taste • Made with care</span>
+      <span>Halal food & catering services</span>
+    </div>
+  </div>
 
-    <!-- Header Navigation -->
-    <header>
-        <div class="nav-container">
-            <img href="#home" class="logo" src="/logo.png">Fresh<span>Bites</span></a>
-            <nav>
-                <a href="#home">Home</a>
-                <a href="#menu">Our Menu</a>
-                <a href="#about">About Us</a>
-                <a href="#contact">Book Now</a>
-            </nav>
-        </div>
-    </header>
+  <header>
+    <nav class="container" aria-label="Main navigation">
+      <a class="brand" href="#home">
+        <img src="fadilat.JPG" alt="Fadilat Tasty Bites logo">
+        <span>Fadilat Catering<small>Services · Tasty Bites</small></span>
+      </a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open navigation menu" aria-expanded="false">☰ Menu</button>
+      <div class="navlinks" id="navlinks">
+        <a href="#home">Home</a>
+        <a href="#services">Products & Services</a>
+        <a href="#about">About Us</a>
+        <a href="#owner">Owner</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
 
-    <!-- Hero Banner Section -->
-    <section id="home">
-        <div class="hero-content">
-            <h1> Fadilat Abubakar Idowu catering service</h1>
-            <h3>Exceptional Catering for Your Special Events</h3>
-            <h2> Daily Lunch Packs - Jollof, Fried Rice, Tuwo, Amala
-                2. Event Catering for Weddings and Birthdays
-                3. Small Chops and Snacks
-                4. Cakes and Pastries
-                5. Food Trays and Bulk Orders
-            </h2>
-            <p>Delicious food, professional service, and unforgettable memories.</p>
-            <a href="#contact" class="btn">Get a Free Quote</a>
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Welcome to Fadilat</div>
+          <h1>Good food.<br><span>Beautiful moments.</span></h1>
+          <p>From everyday lunch packs to special celebrations, Fadilat Catering Services brings flavour, care and a little extra joy to every plate.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#services">Explore Our Menu <span>→</span></a>
+            <a class="btn btn-outline" href="#contact">Make an Enquiry</a>
+          </div>
+          <div class="hero-note">✓ Daily meals &nbsp; ✓ Events &nbsp; ✓ Bulk orders</div>
         </div>
+        <div class="hero-visual">
+          <div class="logo-frame"><img src="/fadilat.JPG" alt="Fadilat Tasty Bites catering logo"></div>
+          <div class="floating-tag">Made with care <span>Flavour in every bite ✨</span></div>
+        </div>
+      </div>
     </section>
 
-    <!-- Menu Pricing Section -->
-    <section id="menu">
-        <h2 class="section-title">Our Catering Packages</h2>
-        <div class="menu-grid">
-            
-            <!-- Package 1 -->
-            <div class="menu-card">
-                <h3>Corporate Lunch</h3>
-                <div class="price">From $15 / head</div>
-                <ul>
-                    <li>Assorted Sandwiches & Wraps</li>
-                    <li>Fresh Garden Salad</li>
-                    <li>Seasonal Fruit Platter</li>
-                    <li>Chilled Beverages</li>
-                </ul>
-                <a href="#contact" class="btn">Inquire</a>
-            </div>
-
-            <!-- Package 2 -->
-            <div class="menu-card">
-                <h3>Party Buffet</h3>
-                <div class="price">From $25 / head</div>
-                <ul>
-                    <li>2 Main Entrées (Meat/Veg)</li>
-                    <li>3 Side Dishes</li>
-                    <li>Warm Bread & Butter</li>
-                    <li>Assorted Dessert Bar</li>
-                </ul>
-                <a href="#contact" class="btn">Inquire</a>
-            </div>
-
-            <!-- Package 3 -->
-            <div class="menu-card">
-                <h3>Premium Plated</h3>
-                <div class="price">From $45 / head</div>
-                <ul>
-                    <li>3-Course Gourmet Dinner</li>
-                    <li>Artisanal Hors d'oeuvres</li>
-                    <li>Professional Table Service</li>
-                    <li>Custom Menu Planning</li>
-                </ul>
-                <a href="#contact" class="btn">Inquire</a>
-            </div>
-
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">What we offer</div>
+          <h2>Our Products & Services</h2>
+          <p>Delicious options for your daily meals, celebrations and special occasions. Contact us to discuss your order and quantity.</p>
         </div>
+        <div class="service-grid">
+          <article class="service-card"><div class="service-icon">🍛</div><h3>Daily Lunch Packs</h3><p>Enjoy satisfying local favourites such as jollof rice, fried rice, tuwo and amala.</p></article>
+          <article class="service-card"><div class="service-icon">🎉</div><h3>Event Catering</h3><p>Food service for weddings, birthdays, family celebrations and other special events.</p></article>
+          <article class="service-card"><div class="service-icon">🥟</div><h3>Small Chops & Snacks</h3><p>Tasty bite-sized treats and snacks for meetings, parties and get-togethers.</p></article>
+          <article class="service-card"><div class="service-icon">🎂</div><h3>Cakes & Pastries</h3><p>Sweet treats to make birthdays, celebrations and everyday moments extra special.</p></article>
+          <article class="service-card"><div class="service-icon">🍱</div><h3>Food Trays</h3><p>Shareable food trays prepared for family occasions, gatherings and celebrations.</p></article>
+          <article class="service-card"><div class="service-icon">📦</div><h3>Bulk Orders</h3><p>Planning for a group? Ask about larger food orders and serving quantities.</p></article>
+        </div>
+      </div>
     </section>
 
-    <!-- About Section -->
     <section id="about">
-        <div class="about-wrapper">
-            <h2 class="section-title">About Fresh Bites</h2>
-            <p>At Fresh Bites Catering, we believe that great events start with incredible food. For over five years, we have provided premium culinary experiences across the city, specializing in corporate events, family gatherings, and private celebrations.</p>
-            <p>We handle everything from ingredient sourcing to beautiful setup and post-event cleanup, leaving you completely free to enjoy your guests.</p>
+      <div class="container about-grid">
+        <div class="about-panel">
+          <div class="big">Fresh meals.<br>Great taste.</div>
+          <p>Food made to bring people together. We aim to make every order satisfying, enjoyable and thoughtfully prepared.</p>
         </div>
+        <div class="about-copy">
+          <div class="section-kicker">A little about us</div>
+          <h2>Food made for sharing</h2>
+          <p>Fadilat Catering Services offers meal packs, event catering, snacks, cakes, pastries and food trays for customers looking for flavour and convenience.</p>
+          <p>Whether you're organising a celebration or arranging meals for a group, we're happy to discuss your needs and help you plan your order.</p>
+          <ul class="check-list">
+            <li>Traditional meals and popular favourites</li>
+            <li>Options for events and group orders</li>
+            <li>Careful preparation and presentation</li>
+            <li>Halal food offering</li>
+          </ul>
+          <a class="btn btn-primary" href="#contact">Talk About Your Order →</a>
+        </div>
+      </div>
     </section>
 
-    <!-- Contact & Booking Intake Section -->
-    <section id="contact">
-        <h2 class="section-title">Request a Quote</h2>
-        <form class="contact-form" action="#" method="POST" onsubmit="alert('Thank you! We will get back to you with a custom quote shortly.'); return false;">
-            <div class="form-group">
-                <label for="name">Your Name</label>
-                <input type="text" id="name" required placeholder="John Doe">
-            </div>
-            <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" required placeholder="john@example.com">
-            </div>
-            <div class="form-group">
-                <label for="date">Event Date</label>
-                <input type="date" id="date" required>
-            </div>
-            <div class="form-group">
+    <section class="profile" id="owner">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Meet the owner</div>
+          <h2>The person behind Fadilat</h2>
+          <p>A personal touch behind every service.</p>
+        </div>
+        <div class="profile-card">
+          <div class="profile-avatar" aria-hidden="true">FA</div>
+          <div>
+            <h3>Fadilat Abubakar Idowu</h3>
+            <p>Owner, Fadilat Catering Services</p>
+            <span class="profile-label">Department: Public Administration</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Get in touch</div>
+          <h2>Let's plan something delicious</h2>
+          <p>For lunch packs, events, cakes, snacks or bulk orders, get in touch to discuss what you need.</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h3>Contact Fadilat</h3>
+            <p>We look forward to hearing from you and helping with your next order.</p>
+            <div class="contact-line"><strong>Phone</strong><span>Phone number: 080**********</span></div>
+            <div class="contact-line"><strong>Business</strong><span>Fadilat Catering Services</span></div>
+            <div class="contact-line"><strong>Services</strong><span>Meals · Events · Snacks · Cakes · Bulk orders</span></div>
+          </div>
+          <div class="order-box">
+            <h3>Ready to make an enquiry?</h3>
+            <p>Call or message us to ask about available meals, prices, event catering and order quantities. Add the owner's correct phone number before publishing this page.</p>
+            <a class="btn btn-primary" href="tel:">080**********</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> <strong>Fadilat Catering Services</strong>. All rights reserved.</span>
+      <span>Fresh meals • Great taste • Always with care</span>
+    </div>
+  </footer>
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navlinks = document.getElementById('navlinks');
+    menuBtn.addEventListener('click', () => {
+      const isOpen = navlinks.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(isOpen));
+    });
+    navlinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navlinks.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }));
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
